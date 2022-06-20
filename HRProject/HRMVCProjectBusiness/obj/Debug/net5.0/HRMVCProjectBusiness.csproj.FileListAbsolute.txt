@@ -1,0 +1,17 @@
+C:\Users\FATOŞ\Source\Repos\HRProject\HRMVCProjectBusiness\obj\Debug\net5.0\HRMVCProjectBusiness.csproj.AssemblyReference.cache
+C:\Users\FATOŞ\Source\Repos\HRProject\HRMVCProjectBusiness\obj\Debug\net5.0\HRMVCProjectBusiness.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\FATOŞ\Source\Repos\HRProject\HRMVCProjectBusiness\obj\Debug\net5.0\HRMVCProjectBusiness.AssemblyInfoInputs.cache
+C:\Users\FATOŞ\Source\Repos\HRProject\HRMVCProjectBusiness\obj\Debug\net5.0\HRMVCProjectBusiness.AssemblyInfo.cs
+C:\Users\FATOŞ\Source\Repos\HRProject\HRMVCProjectBusiness\obj\Debug\net5.0\HRMVCProjectBusiness.csproj.CoreCompileInputs.cache
+C:\Users\FATOŞ\source\repos\HRProject\HRMVCProjectBusiness\bin\Debug\net5.0\HRMVCProjectBusiness.deps.json
+C:\Users\FATOŞ\source\repos\HRProject\HRMVCProjectBusiness\bin\Debug\net5.0\HRMVCProjectBusiness.dll
+C:\Users\FATOŞ\source\repos\HRProject\HRMVCProjectBusiness\bin\Debug\net5.0\HRMVCProjectBusiness.pdb
+C:\Users\FATOŞ\source\repos\HRProject\HRMVCProjectBusiness\bin\Debug\net5.0\HRMVCProjectDataAccess.dll
+C:\Users\FATOŞ\source\repos\HRProject\HRMVCProjectBusiness\bin\Debug\net5.0\HRMVCProjectEntities.dll
+C:\Users\FATOŞ\source\repos\HRProject\HRMVCProjectBusiness\bin\Debug\net5.0\HRMVCProjectDataAccess.pdb
+C:\Users\FATOŞ\source\repos\HRProject\HRMVCProjectBusiness\bin\Debug\net5.0\HRMVCProjectEntities.pdb
+C:\Users\FATOŞ\source\repos\HRProject\HRMVCProjectBusiness\obj\Debug\net5.0\HRMVCProjectBusiness.csproj.CopyComplete
+C:\Users\FATOŞ\source\repos\HRProject\HRMVCProjectBusiness\obj\Debug\net5.0\HRMVCProjectBusiness.dll
+C:\Users\FATOŞ\source\repos\HRProject\HRMVCProjectBusiness\obj\Debug\net5.0\HRMVCProjectBusiness.pdb
+C:\Users\FATOŞ\source\repos\HRProject\HRMVCProjectBusiness\obj\Debug\net5.0\ref\HRMVCProjectBusiness.dll
+C:\Users\FATOŞ\source\repos\HRProject\HRMVCProjectBusiness\obj\Debug\net5.0\refint\HRMVCProjectBusiness.dll

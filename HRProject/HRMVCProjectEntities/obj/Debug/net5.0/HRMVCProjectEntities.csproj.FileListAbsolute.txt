@@ -1,0 +1,12 @@
+C:\Users\FATOŞ\Source\Repos\HRProject\HRMVCProjectEntities\bin\Debug\net5.0\HRMVCProjectEntities.deps.json
+C:\Users\FATOŞ\Source\Repos\HRProject\HRMVCProjectEntities\bin\Debug\net5.0\HRMVCProjectEntities.dll
+C:\Users\FATOŞ\Source\Repos\HRProject\HRMVCProjectEntities\bin\Debug\net5.0\HRMVCProjectEntities.pdb
+C:\Users\FATOŞ\Source\Repos\HRProject\HRMVCProjectEntities\obj\Debug\net5.0\HRMVCProjectEntities.csproj.AssemblyReference.cache
+C:\Users\FATOŞ\Source\Repos\HRProject\HRMVCProjectEntities\obj\Debug\net5.0\HRMVCProjectEntities.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\FATOŞ\Source\Repos\HRProject\HRMVCProjectEntities\obj\Debug\net5.0\HRMVCProjectEntities.AssemblyInfoInputs.cache
+C:\Users\FATOŞ\Source\Repos\HRProject\HRMVCProjectEntities\obj\Debug\net5.0\HRMVCProjectEntities.AssemblyInfo.cs
+C:\Users\FATOŞ\Source\Repos\HRProject\HRMVCProjectEntities\obj\Debug\net5.0\HRMVCProjectEntities.csproj.CoreCompileInputs.cache
+C:\Users\FATOŞ\Source\Repos\HRProject\HRMVCProjectEntities\obj\Debug\net5.0\HRMVCProjectEntities.dll
+C:\Users\FATOŞ\Source\Repos\HRProject\HRMVCProjectEntities\obj\Debug\net5.0\HRMVCProjectEntities.pdb
+C:\Users\FATOŞ\Source\Repos\HRProject\HRMVCProjectEntities\obj\Debug\net5.0\ref\HRMVCProjectEntities.dll
+C:\Users\FATOŞ\source\repos\HRProject\HRMVCProjectEntities\obj\Debug\net5.0\refint\HRMVCProjectEntities.dll

@@ -1,0 +1,40 @@
+﻿@using Microsoft.AspNetCore.Http
+@{
+    ViewData["Title"] = "Contact Us";
+    int id = (int)Context.Session.GetInt32("Id");
+    if(id<0)
+    {
+        Layout = "~/Views/Shared/_Layout.cshtml";
+    }
+    else
+    {
+        Layout = "_LayoutForEmployee";
+    }
+}
+<link href="~/assets/stylesheets/contactUs.css" rel="stylesheet" />
+<!doctype html>
+<html>
+<body class="bg">
+    <div class="row">
+        <div class="col-md-6">
+            <section class="panel">
+                <header class="panel-heading">
+                    <h2 class="panel-title">Harita Bilgileri</h2>
+                </header>
+                <div class="panel-body">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d752.9192055719345!2d29.02237115151787!3d40.98855701207!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1zYmlsZ2VhZGFtIGthZMSxa8O2eQ!5e0!3m2!1str!2str!4v1655301644308!5m2!1str!2str" width="725" height="450" style="border:3;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+            </section>
+        </div>
+
+        <hr>
+
+        <div class="text-center">
+            <h1 class="display-4">İletişim Sayfamız</h1>
+            <p>Adresimiz : Caferağa, Mühürdar Cd. No:76, 34710 Kadıköy/İstanbul</p>
+            <p>İletişim Numarası : (555)-444-33-22</p>
+            <p>Mail Adresimiz : ikburada@mail.com</p>
+        </div>
+    </div>
+</body>
+</html>

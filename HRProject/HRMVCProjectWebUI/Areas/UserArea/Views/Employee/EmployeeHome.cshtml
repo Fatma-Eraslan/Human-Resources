@@ -1,0 +1,187 @@
+﻿@model HRMVCProjectEntities.Concrete.Employee
+@{
+    ViewData["Title"] = "Çalışan Detayları";   
+}
+<header class="page-header">
+	<h2>Çalışan Düzenle</h2>
+	<div class="right-wrapper pull-right">
+		<ol class="breadcrumbs">
+			<li>
+				<a asp-action="Index" asp-controller="Employee" asp-route-id="@Model.Id">
+					<i class="fa fa-home"></i>
+				</a>
+			</li>
+			<li><span>Çalışan</span></li>
+			<li><span>Çalışan Düzenle</span></li>
+		</ol>				
+    </div>
+</header>
+
+<!doctype html>
+<html class="fixed">
+<body>
+    <section class="body">
+        <!-- start: page -->
+        <div class="row">
+            <div class="col-md-4 col-lg-3">
+                <section class="panel">
+                    <div class="panel-body">
+                        <div class="thumb-info mb-md">
+                            <img src="@Model.UserPhotoPath" class="rounded img-responsive" alt="">
+                            <div class="thumb-info-title">
+                                <span class="thumb-info-inner">@Html.DisplayFor(model => model.FirstName)</span>
+                                @*<span class="thumb-info-type">CEO</span>*@
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+            <div class="col-md-8 col-lg-6">
+
+                <div class="tabs">
+                    <ul class="nav nav-tabs tabs-primary">
+                        <li class="active">
+                            <a href="#overview" data-toggle="tab">Görüntüle</a>
+                        </li>
+                        <li>
+                            <a href="#edit" data-toggle="tab">Düzenle</a>
+                        </li>
+                    </ul>
+                    <div class="tab-content">
+                        <div id="overview" class="tab-pane active">
+                            <h4 class="mb-md">Bilgilerim</h4>
+                            <div class="compose-box-footer">
+                                <dl class="row">
+                                    <blockquote class="primary">
+                                    <dt class="col-sm-2">
+                                        Ad
+                                    </dt>
+                                    <dd class="col-sm-10">
+                                            @Html.DisplayFor(model => model.FirstName)
+                                    </dd>
+                                    </blockquote>
+                                    <blockquote class="primary">
+                                    <dt class="col-sm-2">
+                                        Soyad
+                                    </dt>
+                                    <dd class="col-sm-10">
+                                            @Html.DisplayFor(model => model.LastName)
+                                    </dd>
+                                    </blockquote>
+                                    <blockquote class="primary">
+                                    <dt class="col-sm-2">
+                                        Mail
+                                    </dt>
+                                    <dd class="col-sm-10">
+                                            @Html.DisplayFor(model => model.Email)
+                                    </dd>
+                                    </blockquote>
+                                    <blockquote class="primary">
+                                    <dt class="col-sm-2">
+                                        Telefon
+                                    </dt>
+                                    <dd class="col-sm-10">
+                                            @Html.DisplayFor(model => model.PhoneNumber)
+                                    </dd>
+                                    </blockquote>
+                                    <blockquote class="primary">
+                                    <dt class="col-sm-2">
+                                        İşe Giriş
+                                    </dt>
+                                    <dd class="col-sm-10">
+                                            @Html.DisplayFor(model => model.DateStarted)
+                                    </dd>
+                                    </blockquote>
+                                    <blockquote class="primary">
+                                    <dt class="col-sm-2">
+                                        İşten Çıkış
+                                    </dt>
+                                    <dd class="col-sm-10">
+                                            @if (Model.DateQuit == null)
+                                            {
+                                            <p>Halen çalışmakta</p>
+                                            }
+                                            else
+                                            {
+                                                @Html.DisplayFor(model => model.DateQuit)
+                                            }
+                                    </dd>
+                                    </blockquote>
+                                    <blockquote class="primary">
+                                    <dt class="col-sm-2">
+                                        Kimlik No
+                                    </dt>
+                                    <dd class="col-sm-10">
+                                            @Html.DisplayFor(model => model.Identity)
+                                    </dd>
+                                    </blockquote>
+                                </dl>
+                            </div>
+                        </div>
+                        <div id="edit" class="tab-pane">
+                            <form class="form-horizontal" asp-action="EmployeeUpdate" enctype="multipart/form-data" method="post">
+                                  <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                                <h4 class="mb-xlg">Çalışan Bilgileri</h4>
+                                <fieldset>
+                                    <div class="form-group">
+                                        @if (@Model.UserPhotoPath != null)
+                                        {
+                                            <img src="@Url.Content(@Model.UserPhotoPath)" width="100" height="100" class="img-circle" />
+                                        }
+                                        else
+                                        {
+                                            <img src="@Url.Content("~/assets/images/default.jfif")" width="100" height="100" class="img-circle" />
+                                        }
+                                    </div>
+                                    <div class="form-group">
+                                        <label asp-for="Email" class="control-label"></label>
+                                        <h5>@Html.DisplayFor(a=>a.Email)</h5>
+                                        <span asp-validation-for="Email" class="text-danger"></span>
+                                    </div>
+                                    <div class="form-group">
+                                        <label asp-for="PhoneNumber" class="control-label"></label>
+                                        <input type="tel" asp-for="PhoneNumber" class="form-control" required />
+                                        <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+                                    </div>
+                                    <div class="form-group">
+                                        <label asp-for="UserPhoto" class="control-label">Fotografı güncelle(jpeg/git/png):</label>
+                                        <input type="file" asp-for="UserPhoto" class="form-control" accept="image/jpeg,image/gif,image/png" />
+                                        <span asp-validation-for="UserPhoto" class="text-danger"></span>
+                                    </div>
+                                </fieldset>
+                                <div class="panel-footer">
+                                    <div class="row">
+                                        <div class="col-md-9 col-md-offset-3">
+                                            @*                          <button type="submit" class="btn btn-primary">Kaydet</button>*@
+                                            <input type="submit" value="Güncelle" asp-route-id="@Model.Id" asp-action="EmployeeUpdate" class="btn btn-default" formmethod="post" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-12 col-lg-3">
+                <h4 class="mb-md">Diğer Bilgiler</h4>
+                <ul class="simple-card-list mb-xlg">
+
+                    <li class="primary">
+                        <h3>@ViewBag.IzinTalepSayisi</h3>
+                        <p>Güncel İzin Talepleri</p>
+                    </li>
+                    <li class="primary">
+                        <h3>@ViewBag.AvansTalepSayisi</h3>
+                        <p>Güncel Avans Talepleri</p>
+                    </li>
+                    <li class="primary">
+                        <h3>@ViewBag.AvansMiktari ₺</h3>
+                        <p>Alınabilecek Avans Miktarı</p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <!-- end: page -->
+    </section>
+</body>
+</html>
