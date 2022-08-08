@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "Kt6p/Oi9QaRN9k4MDCvnVcJhGEXRyvmzlVMMpYz6O/BgiYLjdNNzxPfIqpew+kCgo5H5M5dpXTiuHk09HGjEGQ==",
+  "dgSpecHash": "8UmZaP+PViVSO8RKK3hhZVqLy18gYzzY7o7x55HOGAiSZ2W/q/2HQXnYQMosJ/ktdAg+GMMIg5l6Vj/wywUCWA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\FATOŞ\\Source\\Repos\\HRProject\\HRMVCProjectWebUI\\HRMVCProjectWebUI.csproj",
+  "projectFilePath": "D:\\GitHub\\HRProjectGIT\\HRProject\\HRMVCProjectWebUI\\HRMVCProjectWebUI.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\FATOŞ\\.nuget\\packages\\fluentvalidation\\11.0.3\\fluentvalidation.11.0.3.nupkg.sha512",
     "C:\\Users\\FATOŞ\\.nuget\\packages\\fluentvalidation.aspnetcore\\11.0.3\\fluentvalidation.aspnetcore.11.0.3.nupkg.sha512",

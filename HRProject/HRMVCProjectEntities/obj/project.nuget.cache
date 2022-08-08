@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "c04da932Q5sgVmFo5DWY9rw/tCpybMY5lkCHXrYATjtLxLeTCIgJtcg/a1Hs7CxhhoZXIk/CaM+I/qNXZDn89A==",
+  "dgSpecHash": "w3LIZiYM5kiLSL323/vk2NhSSvwKDk3Kcz4Yq60jmxSmNFL2l36EPn2KVxz85sb71nW+VxcWZt69tVvTldselA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\FATOŞ\\Source\\Repos\\HRProject\\HRMVCProjectEntities\\HRMVCProjectEntities.csproj",
+  "projectFilePath": "D:\\GitHub\\HRProjectGIT\\HRProject\\HRMVCProjectEntities\\HRMVCProjectEntities.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\FATOŞ\\.nuget\\packages\\microsoft.aspnetcore.cryptography.internal\\5.0.17\\microsoft.aspnetcore.cryptography.internal.5.0.17.nupkg.sha512",
     "C:\\Users\\FATOŞ\\.nuget\\packages\\microsoft.aspnetcore.cryptography.keyderivation\\5.0.17\\microsoft.aspnetcore.cryptography.keyderivation.5.0.17.nupkg.sha512",

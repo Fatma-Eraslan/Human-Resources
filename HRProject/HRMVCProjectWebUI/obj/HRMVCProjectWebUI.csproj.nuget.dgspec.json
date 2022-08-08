@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\FATOŞ\\Source\\Repos\\HRProject\\HRMVCProjectWebUI\\HRMVCProjectWebUI.csproj": {}
+    "D:\\GitHub\\HRProjectGIT\\HRProject\\HRMVCProjectWebUI\\HRMVCProjectWebUI.csproj": {}
   },
   "projects": {
-    "C:\\Users\\FATOŞ\\Source\\Repos\\HRProject\\HRMVCProjectBusiness\\HRMVCProjectBusiness.csproj": {
+    "D:\\GitHub\\HRProjectGIT\\HRProject\\HRMVCProjectBusiness\\HRMVCProjectBusiness.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\FATOŞ\\Source\\Repos\\HRProject\\HRMVCProjectBusiness\\HRMVCProjectBusiness.csproj",
+        "projectUniqueName": "D:\\GitHub\\HRProjectGIT\\HRProject\\HRMVCProjectBusiness\\HRMVCProjectBusiness.csproj",
         "projectName": "HRMVCProjectBusiness",
-        "projectPath": "C:\\Users\\FATOŞ\\Source\\Repos\\HRProject\\HRMVCProjectBusiness\\HRMVCProjectBusiness.csproj",
+        "projectPath": "D:\\GitHub\\HRProjectGIT\\HRProject\\HRMVCProjectBusiness\\HRMVCProjectBusiness.csproj",
         "packagesPath": "C:\\Users\\FATOŞ\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\FATOŞ\\Source\\Repos\\HRProject\\HRMVCProjectBusiness\\obj\\",
+        "outputPath": "D:\\GitHub\\HRProjectGIT\\HRProject\\HRMVCProjectBusiness\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -32,8 +32,8 @@
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {
-              "C:\\Users\\FATOŞ\\Source\\Repos\\HRProject\\HRMVCProjectDataAccess\\HRMVCProjectDataAccess.csproj": {
-                "projectPath": "C:\\Users\\FATOŞ\\Source\\Repos\\HRProject\\HRMVCProjectDataAccess\\HRMVCProjectDataAccess.csproj"
+              "D:\\GitHub\\HRProjectGIT\\HRProject\\HRMVCProjectDataAccess\\HRMVCProjectDataAccess.csproj": {
+                "projectPath": "D:\\GitHub\\HRProjectGIT\\HRProject\\HRMVCProjectDataAccess\\HRMVCProjectDataAccess.csproj"
               }
             }
           }
@@ -72,14 +72,14 @@
         }
       }
     },
-    "C:\\Users\\FATOŞ\\Source\\Repos\\HRProject\\HRMVCProjectDataAccess\\HRMVCProjectDataAccess.csproj": {
+    "D:\\GitHub\\HRProjectGIT\\HRProject\\HRMVCProjectDataAccess\\HRMVCProjectDataAccess.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\FATOŞ\\Source\\Repos\\HRProject\\HRMVCProjectDataAccess\\HRMVCProjectDataAccess.csproj",
+        "projectUniqueName": "D:\\GitHub\\HRProjectGIT\\HRProject\\HRMVCProjectDataAccess\\HRMVCProjectDataAccess.csproj",
         "projectName": "HRMVCProjectDataAccess",
-        "projectPath": "C:\\Users\\FATOŞ\\Source\\Repos\\HRProject\\HRMVCProjectDataAccess\\HRMVCProjectDataAccess.csproj",
+        "projectPath": "D:\\GitHub\\HRProjectGIT\\HRProject\\HRMVCProjectDataAccess\\HRMVCProjectDataAccess.csproj",
         "packagesPath": "C:\\Users\\FATOŞ\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\FATOŞ\\Source\\Repos\\HRProject\\HRMVCProjectDataAccess\\obj\\",
+        "outputPath": "D:\\GitHub\\HRProjectGIT\\HRProject\\HRMVCProjectDataAccess\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -100,8 +100,8 @@
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {
-              "C:\\Users\\FATOŞ\\Source\\Repos\\HRProject\\HRMVCProjectEntities\\HRMVCProjectEntities.csproj": {
-                "projectPath": "C:\\Users\\FATOŞ\\Source\\Repos\\HRProject\\HRMVCProjectEntities\\HRMVCProjectEntities.csproj"
+              "D:\\GitHub\\HRProjectGIT\\HRProject\\HRMVCProjectEntities\\HRMVCProjectEntities.csproj": {
+                "projectPath": "D:\\GitHub\\HRProjectGIT\\HRProject\\HRMVCProjectEntities\\HRMVCProjectEntities.csproj"
               }
             }
           }
@@ -158,14 +158,14 @@
         }
       }
     },
-    "C:\\Users\\FATOŞ\\Source\\Repos\\HRProject\\HRMVCProjectEntities\\HRMVCProjectEntities.csproj": {
+    "D:\\GitHub\\HRProjectGIT\\HRProject\\HRMVCProjectEntities\\HRMVCProjectEntities.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\FATOŞ\\Source\\Repos\\HRProject\\HRMVCProjectEntities\\HRMVCProjectEntities.csproj",
+        "projectUniqueName": "D:\\GitHub\\HRProjectGIT\\HRProject\\HRMVCProjectEntities\\HRMVCProjectEntities.csproj",
         "projectName": "HRMVCProjectEntities",
-        "projectPath": "C:\\Users\\FATOŞ\\Source\\Repos\\HRProject\\HRMVCProjectEntities\\HRMVCProjectEntities.csproj",
+        "projectPath": "D:\\GitHub\\HRProjectGIT\\HRProject\\HRMVCProjectEntities\\HRMVCProjectEntities.csproj",
         "packagesPath": "C:\\Users\\FATOŞ\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\FATOŞ\\source\\repos\\HRProject\\HRMVCProjectEntities\\obj\\",
+        "outputPath": "D:\\GitHub\\HRProjectGIT\\HRProject\\HRMVCProjectEntities\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -226,14 +226,14 @@
         }
       }
     },
-    "C:\\Users\\FATOŞ\\Source\\Repos\\HRProject\\HRMVCProjectWebUI\\HRMVCProjectWebUI.csproj": {
+    "D:\\GitHub\\HRProjectGIT\\HRProject\\HRMVCProjectWebUI\\HRMVCProjectWebUI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\FATOŞ\\Source\\Repos\\HRProject\\HRMVCProjectWebUI\\HRMVCProjectWebUI.csproj",
+        "projectUniqueName": "D:\\GitHub\\HRProjectGIT\\HRProject\\HRMVCProjectWebUI\\HRMVCProjectWebUI.csproj",
         "projectName": "HRMVCProjectWebUI",
-        "projectPath": "C:\\Users\\FATOŞ\\Source\\Repos\\HRProject\\HRMVCProjectWebUI\\HRMVCProjectWebUI.csproj",
+        "projectPath": "D:\\GitHub\\HRProjectGIT\\HRProject\\HRMVCProjectWebUI\\HRMVCProjectWebUI.csproj",
         "packagesPath": "C:\\Users\\FATOŞ\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\FATOŞ\\Source\\Repos\\HRProject\\HRMVCProjectWebUI\\obj\\",
+        "outputPath": "D:\\GitHub\\HRProjectGIT\\HRProject\\HRMVCProjectWebUI\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -254,11 +254,11 @@
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {
-              "C:\\Users\\FATOŞ\\Source\\Repos\\HRProject\\HRMVCProjectBusiness\\HRMVCProjectBusiness.csproj": {
-                "projectPath": "C:\\Users\\FATOŞ\\Source\\Repos\\HRProject\\HRMVCProjectBusiness\\HRMVCProjectBusiness.csproj"
+              "D:\\GitHub\\HRProjectGIT\\HRProject\\HRMVCProjectBusiness\\HRMVCProjectBusiness.csproj": {
+                "projectPath": "D:\\GitHub\\HRProjectGIT\\HRProject\\HRMVCProjectBusiness\\HRMVCProjectBusiness.csproj"
               },
-              "C:\\Users\\FATOŞ\\Source\\Repos\\HRProject\\HRMVCProjectDataAccess\\HRMVCProjectDataAccess.csproj": {
-                "projectPath": "C:\\Users\\FATOŞ\\Source\\Repos\\HRProject\\HRMVCProjectDataAccess\\HRMVCProjectDataAccess.csproj"
+              "D:\\GitHub\\HRProjectGIT\\HRProject\\HRMVCProjectDataAccess\\HRMVCProjectDataAccess.csproj": {
+                "projectPath": "D:\\GitHub\\HRProjectGIT\\HRProject\\HRMVCProjectDataAccess\\HRMVCProjectDataAccess.csproj"
               }
             }
           }

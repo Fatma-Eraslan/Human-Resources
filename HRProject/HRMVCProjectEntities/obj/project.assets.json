@@ -773,11 +773,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\FATOŞ\\Source\\Repos\\HRProject\\HRMVCProjectEntities\\HRMVCProjectEntities.csproj",
+      "projectUniqueName": "D:\\GitHub\\HRProjectGIT\\HRProject\\HRMVCProjectEntities\\HRMVCProjectEntities.csproj",
       "projectName": "HRMVCProjectEntities",
-      "projectPath": "C:\\Users\\FATOŞ\\Source\\Repos\\HRProject\\HRMVCProjectEntities\\HRMVCProjectEntities.csproj",
+      "projectPath": "D:\\GitHub\\HRProjectGIT\\HRProject\\HRMVCProjectEntities\\HRMVCProjectEntities.csproj",
       "packagesPath": "C:\\Users\\FATOŞ\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\FATOŞ\\Source\\Repos\\HRProject\\HRMVCProjectEntities\\obj\\",
+      "outputPath": "D:\\GitHub\\HRProjectGIT\\HRProject\\HRMVCProjectEntities\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
