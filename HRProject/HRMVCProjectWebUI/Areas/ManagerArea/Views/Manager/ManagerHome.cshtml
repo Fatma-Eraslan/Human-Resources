@@ -1,5 +1,116 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
+﻿@using HRMVCProjectEntities.Concrete
+@model IEnumerable<HRMVCProjectEntities.Concrete.Package>
 @{
+    //ViewData["Title"] = "Avans Listesi";
+    Layout = "_LayoutForManager";
 }
+
+@foreach (Package item in Model)
+{
+    <div class="row">
+        <div class="col-md-6 col-lg-6 col-xl-3">
+            <form asp-action="">
+                <section class="panel">
+                    <header class="panel-heading bg-white">
+                        @* <div class="panel-heading-icon bg-primary mt-sm">
+                    <i class="fa fa-rocket"></i>
+                    </div>*@
+                        <img src="@item.PackagePhotoPath" width="80" height="80" />
+                    </header>
+                    <div class="panel-body">
+                        <h3 class="text-semibold mt-none text-center">@item.PackageName</h3>
+                        <p class="text-center">@item.Description</p>
+                    </div>
+                    <button asp-route-id="@item.Id" type="submit" class="mb-xs mt-xs mr-xs btn btn-info">Detay</button>
+                </section>
+            </form>
+        </div>
+    </div>
+}
+
+
+<div class="col-md-12 col-lg-12 col-xl-4">
+    <h5 class="text-semibold text-dark text-uppercase mb-md mt-lg">Talep Görüntüleme Kartları</h5>
+    <div class="row">
+
+
+        <div class="col-md-6 col-xl-12">
+            <section class="panel">
+                <div class="panel-body bg-quartenary">
+                    <div class="widget-summary">
+                        <div class="widget-summary-col widget-summary-col-icon">
+                            <div class="summary-icon bg-quartenary">
+                                <i class="fa fa-user"></i>
+                            </div>
+                        </div>
+                        <div class="widget-summary-col">
+                            <div class="summary">
+                                <h4 class="title">Beklemede olan avans talepleri</h4>
+                                <div class="info">
+                                    <strong class="amount">@ViewBag.PendingAdvancePaymentCount</strong>
+                                </div>
+                            </div>
+                            <div class="summary-footer">
+                                <a asp-controller="AdvancePayments" asp-action="AdvancePaymentCheck" asp-area="ManagerArea" class="text-uppercase">görüntüle</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+
+        <div class="col-md-6 col-xl-12">
+            <section class="panel">
+                <div class="panel-body bg-quartenary">
+                    <div class="widget-summary">
+                        <div class="widget-summary-col widget-summary-col-icon">
+                            <div class="summary-icon bg-quartenary">
+                                <i class="fa fa-user"></i>
+                            </div>
+                        </div>
+                        <div class="widget-summary-col">
+                            <div class="summary">
+                                <h4 class="title">Beklemede olan harcama talepleri</h4>
+                                <div class="info">
+                                    <strong class="amount">@ViewBag.PendingCostCount</strong>
+                                </div>
+                            </div>
+                            <div class="summary-footer">
+                                <a asp-controller="Costs" asp-action="CostCheck" asp-area="ManagerArea" class="text-uppercase">görüntüle</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <div class="col-md-6 col-xl-12">
+            <section class="panel">
+                <div class="panel-body bg-quartenary">
+                    <div class="widget-summary">
+                        <div class="widget-summary-col widget-summary-col-icon">
+                            <div class="summary-icon bg-quartenary">
+                                <i class="fa fa-user"></i>
+                            </div>
+                        </div>
+                        <div class="widget-summary-col">
+                            <div class="summary">
+                                <h4 class="title">Beklemede olan izin talepleri</h4>
+                                <div class="info">
+                                    <strong class="amount">@ViewBag.PendingPermissionCount</strong>
+                                </div>
+                            </div>
+                            <div class="summary-footer">
+                                <a asp-controller="Permissions" asp-action="PermissionCheck" asp-area="ManagerArea" class="text-uppercase">görüntüle</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+
+
+    </div>
+</div>

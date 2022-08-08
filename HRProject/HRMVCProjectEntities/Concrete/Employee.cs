@@ -16,6 +16,7 @@ namespace HRMVCProjectEntities.Concrete
             Permissions = new HashSet<Permission>();
             AdvancePayments = new HashSet<AdvancePayment>();
             Costs = new HashSet<Cost>();
+            CreditCards = new HashSet<CreditCard>();
         }
 
         [Display(Name = "TC Kimlik No")]
@@ -24,14 +25,17 @@ namespace HRMVCProjectEntities.Concrete
         public string FirstName { get; set; }
         [Display(Name = "Soyad")]
         public string LastName { get; set; }
+        [Display(Name = "Cinsiyet")]
+        public bool Gender { get; set; }
         [Display(Name = "Doğum Tarihi")]
         public DateTime BirthDate { get; set; }
         [Display(Name = "Maaş")]
-        public double Wage { get; set; }
+        public int Wage { get; set; }
         //[RegularExpression(@"^[\w-._+%]+@(?:[\w-]+.)+[\w]{2,6}$", ErrorMessage = "Please enter a valid email address")]
-       
-       // public string Password { get; set; }
-       // public string Telephone { get; set; }
+
+        // public string Password { get; set; }
+        // public string Telephone { get; set; }
+        public bool IsActive { get; set; }
         public DateTime DateStarted { get; set; }=DateTime.Now;
         public DateTime? DateQuit { get; set; }
         public string UserPhotoPath { get; set; }
@@ -43,7 +47,15 @@ namespace HRMVCProjectEntities.Concrete
 
         public ICollection<Permission> Permissions { get; set; }   
         
-        public ICollection<AdvancePayment> AdvancePayments { get; set; }    
-        public ICollection<Cost> Costs { get; set; }    
+        public ICollection<AdvancePayment> AdvancePayments { get; set; } 
+        
+        public ICollection<Cost> Costs { get; set; }
+
+        public int? WalletId { get; set; }
+        public Wallet Wallet { get; set; }
+        
+        public int? PackageId { get; set; }
+        public Package Package { get; set; }
+        public ICollection<CreditCard> CreditCards { get; set; }
     }
 }

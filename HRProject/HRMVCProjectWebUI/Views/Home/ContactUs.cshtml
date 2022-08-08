@@ -1,15 +1,15 @@
 ﻿@using Microsoft.AspNetCore.Http
 @{
     ViewData["Title"] = "Contact Us";
-    int id = (int)Context.Session.GetInt32("Id");
-    if(id<0)
-    {
+    //int id = (int)Context.Session.GetInt32("Id");
+    //if(id<0)
+    //{
         Layout = "~/Views/Shared/_Layout.cshtml";
-    }
-    else
-    {
-        Layout = "_LayoutForEmployee";
-    }
+    //}
+    //else
+    //{
+    //  Layout = "_LayoutForEmployee";
+    //}
 }
 <link href="~/assets/stylesheets/contactUs.css" rel="stylesheet" />
 <!doctype html>
@@ -30,7 +30,7 @@
         <hr>
 
         <div class="text-center">
-            <h1 class="display-4">İletişim Sayfamız</h1>
+            @*<h1 class="display-4">İletişim Sayfamız</h1>*@
             <p>Adresimiz : Caferağa, Mühürdar Cd. No:76, 34710 Kadıköy/İstanbul</p>
             <p>İletişim Numarası : (555)-444-33-22</p>
             <p>Mail Adresimiz : ikburada@mail.com</p>

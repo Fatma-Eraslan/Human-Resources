@@ -45,5 +45,23 @@ namespace HRMVCProjectDataAccess.Repositories.Concrete
             return db.Employees.Include(a => a.Costs).FirstOrDefault(a => a.Id == id);
         }
 
+        //public void PasswordChange(int employeeId, string newPassword)
+        //{
+        //    Employee employee=GetById(employeeId);
+        //    employee.Pa
+        //}
+
+        public bool CheckIdentity(string identity)
+        {
+            if(db.Employees.All(x=>x.Identity != identity))
+            {
+                return true;
+            }
+            return false;
+        }
+        public Employee GetByManagerIdIncludeCreditCards(int ManagerId)
+        {
+            return db.Employees.Include(a => a.CreditCards).FirstOrDefault(b => b.Id == ManagerId);
+        }
     }
 }

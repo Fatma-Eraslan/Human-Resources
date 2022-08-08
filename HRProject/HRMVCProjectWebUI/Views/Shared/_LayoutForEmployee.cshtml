@@ -53,6 +53,11 @@
     <!-- Head Libs -->
     <script src="~/assets/vendor/modernizr/modernizr.js"></script>
 
+    <!-- JQUERY KISMI -->
+    <script src="~/assets/jquery/jquery.min.js"></script>
+    <script src="~/assets/jquery-validate/jquery.validate.min.js"></script>
+    <script src="~/assets/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+
 </head>
 <body>
     <section class="body">
@@ -69,7 +74,7 @@
             </div>
 
             <!-- start: search & user box -->
-            <div class="header-right">
+            <div class="header-right" >
                 <span class="separator"></span>
 
                 <div id="userbox" class="userbox">
@@ -77,9 +82,12 @@
                         <figure class="profile-picture">
                             @if (foto == null)
                             {
-                                foto = "/assets/images/default.png";
+                                <img src="/assets/images/default.png" alt="" class="img-circle" height="50"  />
                             }
-                            <img src="@foto" alt="" class="img-circle" />
+                            else
+                            {
+                                <img src="@foto" alt="" class="img-circle" height="50"  />   
+                            }
                         </figure>
                         <div class="profile-info">
                             @if (kullanıcıAdı == null)
@@ -98,6 +106,9 @@
                             <li class="divider"></li>
                             <li>
                                 <a asp-action="EmployeeHome" asp-controller="Employee" asp-route-id="@id" role="menuitem" tabindex="-1">Profilim</a>
+                            </li>
+                            <li>
+                                <a asp-action="PasswordChange" asp-controller="Employee" asp-route-id="@id" role="menuitem" tabindex="-1">Şifre Değiştir</a>
                             </li>
                             @*<li>
                             <a role="menuitem" tabindex="-1" href="#" data-lock-screen="true"><i class="fa fa-lock"></i> Lock Screen</a>
@@ -118,13 +129,13 @@
 
         <div class="inner-wrapper">
             <!-- start: sidebar -->
-            <aside id="sidebar-left" class="sidebar-left">
+            <aside id="sidebar-left" class="sidebar-left" style="background-color:#800c0c">
 
-                <div class="sidebar-header">
+                <div class="sidebar-header" style="background-color:#800c0c">
                     @*<div class="sidebar-title">
                     Navigation
                     </div>*@
-                    <div class="sidebar-toggle hidden-xs" data-toggle-class="sidebar-left-collapsed" data-target="html" data-fire-event="sidebar-left-toggle">
+                    <div class="sidebar-toggle hidden-xs" data-toggle-class="sidebar-left-collapsed" data-target="html" data-fire-event="sidebar-left-toggle" style="background-color:#800c0c">
                         <i class="fa fa-bars" aria-label="Toggle sidebar"></i>
                     </div>
                 </div>
@@ -185,7 +196,6 @@
                                             </li>
                                         </ul>
                                     </li>
-
                                     <li class="nav-parent">
                                         <a>
                                             <i class="fa fa-copy" aria-hidden="true"></i>
@@ -206,7 +216,7 @@
                                     </li>
                                 }
                                 <li>
-                                <li>
+                                @*<li>
                                     <a asp-action="AboutUs" asp-controller="Home" asp-area="">
                                         <i class="fa fa-info" aria-hidden="true"></i>
                                         <span>Hakkımızda</span>
@@ -217,12 +227,12 @@
                                         <i class="fa fa-phone-square" aria-hidden="true"></i>
                                         <span>İletişim</span>
                                     </a>
-                                </li>
+                                </li>*@
 
                                     @if (kullanıcıAdı != null)
                                     {
                                     <p class="menu-position text-white display-3">
-                                        &emsp;nbsp;
+                                        &emsp;
                                         Personel olarak giriş yapıldı.
                                     </p>
                                     }
@@ -237,15 +247,15 @@
             <!-- end: sidebar -->
 
             <section role="main" class="content-body">
-                <header class="page-header">
+                <header class="page-header" style="background-color:#800c0c">
                     <h2>@header</h2>
 
                     <div class="right-wrapper pull-right">
                         <ol class="breadcrumbs">
                             <li>
-                                <a asp-action="Index" asp-controller="Employee">
+                                @*<a asp-action="Index" asp-controller="Employee">*@
                                     <i class="fa fa-home"></i>
-                                </a>
+                                @*</a>*@
                             </li>
 
                             <li>

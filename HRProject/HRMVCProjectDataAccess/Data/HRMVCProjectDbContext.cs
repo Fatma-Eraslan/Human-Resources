@@ -26,6 +26,9 @@ namespace HRMVCProjectDataAccess.Data
         public DbSet<CostType> CostTypes { get; set; }
         public DbSet<Manager> Managers { get; set; }
         public DbSet<Company> Companies { get; set; }
+        public DbSet<Wallet> Wallets { get; set; }
+        public DbSet<Package> Packages { get; set; }
+        public DbSet<CreditCard> CreditCards { get; set; }
 
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -41,10 +44,14 @@ namespace HRMVCProjectDataAccess.Data
             // modelBuilder.Entity<Employee>().Property(a => a.Telephone).IsRequired().HasMaxLength(15);
             modelBuilder.Entity<Employee>().Ignore(a => a.UserPhoto);
             modelBuilder.Entity<Cost>().Ignore(a => a.CostFile);
+            modelBuilder.Entity<Package>().Ignore(a => a.PackagePhoto);
 
-            //modelBuilder.Entity<IdentityRole>().HasData(new IdentityRole { Name = "User",NormalizedName="USER" });
+            modelBuilder.Entity<IdentityRole>().HasData(new IdentityRole { Name = "User", NormalizedName = "USER" });
+            modelBuilder.Entity<IdentityRole>().HasData(new IdentityRole { Name = "Manager", NormalizedName = "MANAGER" });
+            modelBuilder.Entity<IdentityRole>().HasData(new IdentityRole { Name = "Admin", NormalizedName = "ADMIN" });
             modelBuilder.Entity<UserRole>().HasData(new UserRole { Name = "User", NormalizedName = "USER", Id = 1 });
             modelBuilder.Entity<UserRole>().HasData(new UserRole { Name = "Manager", NormalizedName = "MANAGER", Id = 2 });
+            modelBuilder.Entity<UserRole>().HasData(new UserRole { Name = "Admin", NormalizedName = "ADMIN", Id = 3 });
             modelBuilder.Entity<CostType>().HasData(new CostType { CostName = "Yemek", Id = 1 });
             modelBuilder.Entity<CostType>().HasData(new CostType { CostName = "Seyehat", Id = 2 });
             modelBuilder.Entity<CostType>().HasData(new CostType { CostName = "Ulaşım", Id = 3 });
@@ -61,40 +68,8 @@ namespace HRMVCProjectDataAccess.Data
 
             modelBuilder.Entity<Company>().HasData(new Company { Id = 1, Name = "Bilge Adam", Address = "İstanbul/Kadıköy", Sector = "Technology", MailExtension = "bilgeadamboost.com" });
 
-            PasswordHasher<Employee> passwordHasher = new PasswordHasher<Employee>();
-
-
-            Employee manager = new Employee()
-            //var employees = new List<Employee>()
-            {                
-                Id = 1,
-                Identity = "12345678912",
-                FirstName = "Fatoş",
-                LastName = "Eraslan",
-                BirthDate = new DateTime(1998, 11, 29),
-                Wage = 152000,
-                DateStarted = DateTime.Now,
-                UserName = "fatoseraslan",
-                Email = "fatos@gmail.com",
-                NormalizedEmail = "FATOS@GMAİL.COM",
-                NormalizedUserName = "FATOSERASLAN",
-                CompanyId = 1,
-                //PasswordHash="AQAAAAEAACcQAAAAECNZRjAilUhkUg8Rpxr2FJ6anWBxrJpdCpfHbgBb0DdO9 + Af2HZU + cYM4svOpPo3dA"
-                PasswordHash=passwordHasher.HashPassword(null, "Admin*123"),                
-                EmailConfirmed=true,
-                LockoutEnabled = false,
-                //SecurityStamp = Guid.NewGuid().ToString()
-                
-            };
-
-            //await userStore.AddToRoleAsync(user, "admin");
-            modelBuilder.Entity<IdentityUserRole<int>>().HasData(new IdentityUserRole<int>
-            {
-                RoleId = 2,
-                UserId = 1
-            });
-            modelBuilder.Entity<Employee>().HasData(manager);
-
+            PasswordHasher<Employee> passwordHasher = new PasswordHasher<Employee>();        
+         
             base.OnModelCreating(modelBuilder);
             //RoleManager = new RoleManager<IdentityRole>(
             //       new RoleStore<IdentityRole>(new HRMVCProjectDbContext()));
@@ -105,8 +80,9 @@ namespace HRMVCProjectDataAccess.Data
         {
             if (!optionsBuilder.IsConfigured)
             {
-                optionsBuilder.UseSqlServer("Server=tcp:boostserver.database.windows.net,1433;Initial Catalog=HRProjectDb;Persist Security Info=False;User ID=boostadmin;Password=Boost1234;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;");
+                optionsBuilder.UseSqlServer("Data Source=.;Initial Catalog=IKBurada;Integrated Security=true;");
             }
         }
+        
     }
 }

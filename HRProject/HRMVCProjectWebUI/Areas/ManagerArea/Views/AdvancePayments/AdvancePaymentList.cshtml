@@ -1,0 +1,64 @@
+﻿@using HRMVCProjectEntities.Concrete.Enums
+@model EmployeeAdvancePaymentVM
+
+<!-- start: page -->
+<section class="panel">
+    <header class="panel-heading">
+
+        <h2 class="panel-title">Bütün Avanslar</h2>
+    </header>
+    <div class="panel-body">
+
+        <table class="table table-bordered table-striped mb-none" id="datatable-editable">
+            <thead>
+                <tr>
+                    <th>Ad Soyad</th>
+                    <th>Tutar</th>
+                    <th>Talep Tarihi</th>
+                    <th>Açıklama</th>
+                    <th>Onay Durumu</th>
+                    <th>Cevap Tarihi</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model.AdvancePayments)
+                {
+                    <tr class="gradeA">
+                        <td>@Model.EmployeeFullName</td>
+                        <td>@item.Amount ₺</td>
+                        <td>@item.RequestDate.ToShortDateString()</td>
+                        <td>@item.Description</td>
+                        <td>
+                            @{
+                                if (item.ReplyState == ReplyState.Onaylandı)
+                                {
+                                    <span>&#128994</span>
+                                }
+                                if (item.ReplyState == ReplyState.OnaylanMAdı)
+                                {
+                                    <span>&#128308;</span>
+                                }
+                                if (item.ReplyState == ReplyState.Beklemede)
+                                {
+                                    <span>&#128993;</span>
+                                }
+                            }
+                        </td>
+                         <td>
+                                @if(item.ReplyState == ReplyState.Onaylandı || item.ReplyState == ReplyState.OnaylanMAdı)
+                                {
+                                    @Html.DisplayFor(modelItem => item.ReplyDate)
+                                }
+                                else
+                                {
+                                    <h5>Cevaplanmadı</h5>
+                                }
+                         </td>
+                    </tr>
+                }
+
+            </tbody>
+        </table>
+    </div>
+</section>
+<!-- end: page -->

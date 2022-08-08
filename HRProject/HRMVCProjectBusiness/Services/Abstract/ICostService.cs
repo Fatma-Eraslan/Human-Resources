@@ -9,6 +9,8 @@ namespace HRMVCProjectBusiness.Services.Abstract
 {
     public interface ICostService:IGenericService<Cost>
     {
-        
+        IEnumerable<Cost> GetAllByCompanyId(int companyId);
+        IEnumerable<Cost> GetPendingCosts(int companyId);
+        Cost GetById(int Id);
     }
 }

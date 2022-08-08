@@ -41,5 +41,14 @@ namespace HRMVCProjectBusiness.Services.Concrete
                 throw new Exception("Id hatalı");
             }
         }
+        public IEnumerable<Permission> GetAllByCompanyId(int companyId)
+        {
+            return permissionRepository.GetAllByCompanyId(companyId);
+        }
+
+        public IEnumerable<Permission> GetPendingPermissions(int companyId)
+        {
+            return permissionRepository.GetPendingPermissions(companyId);
+        }
     }
 }

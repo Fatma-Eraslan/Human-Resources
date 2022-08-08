@@ -1,6 +1,7 @@
 ﻿using HRMVCProjectBusiness.Services.Abstract;
 using HRMVCProjectBusiness.Services.Concrete;
 using HRMVCProjectEntities.Concrete;
+using HRMVCProjectWebUI.Areas.UserArea.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -8,6 +9,7 @@ using Microsoft.AspNetCore.Mvc.ModelBinding;
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Threading.Tasks;
 
 namespace HRMVCProjectWebUI.Areas.UserArea.Controllers
 {
@@ -17,19 +19,23 @@ namespace HRMVCProjectWebUI.Areas.UserArea.Controllers
         private readonly IEmployeeService employeeService;
         private readonly IAdvancePaymentService advancePaymentService;
         private readonly SignInManager<User> signInManager;
-        private readonly UserManager<User> userManager;
+        private readonly UserManager<User> userManager;     
+        private readonly ICostService costService;
 
-        public EmployeeController(IEmployeeService employeeService,IAdvancePaymentService advancePaymentService)
+        public EmployeeController(IEmployeeService employeeService,IAdvancePaymentService advancePaymentService, UserManager<User> userManager,ICostService costService,SignInManager<User> signInManager)
         {
             this.employeeService = employeeService;
             this.advancePaymentService = advancePaymentService;
+            this.userManager = userManager;
+            this.costService = costService;
+            this.signInManager = signInManager;          
         }
         public IActionResult Index(int id)
         {
             ViewBag.Header = "Ana Sayfa";
             var employee = employeeService.GetById(id);
-            
-            
+
+
             ViewBag.KullaniciIsim = employee.FirstName;
             HttpContext.Session.SetInt32("Id", employee.Id);
             if (employee.UserPhotoPath != null)
@@ -46,29 +52,67 @@ namespace HRMVCProjectWebUI.Areas.UserArea.Controllers
         {
             ViewBag.Header = "Çalışanlar";
             var employees = employeeService.GetAll();
-            return View(employees);
+            List<Employee> list = new List<Employee>();
+            int Id = (int)HttpContext.Session.GetInt32("Id");
+            Employee employee = employeeService.GetById(Id);
+            foreach (Employee item in employees)
+            {
+                if (item.CompanyId == employee.CompanyId)
+                {
+                    list.Add(item);
+                }
+            }
+            return View(list);
         }
 
         // [HttpGet("{id}")]
        // [Route("Anasayfa/{id:int}")]
         public IActionResult EmployeeHome(int id)
         {
+            ViewBag.Header = "Profilim";
             Employee employee = employeeService.GetById(id);
             if (employee.UserPhotoPath == null)
             {
-                ViewBag.Foto = "/assets/images/default.jfif";
+                HttpContext.Session.SetString("picPath", "~/assets/images/default.png");
             }
             else
             {
-                ViewBag.Foto = employee.UserPhotoPath;
+                HttpContext.Session.SetString("picPath", employee.UserPhotoPath);
 
             }
             ViewBag.KullanıcıAdı = $"{employee.FirstName} {employee.LastName}";
             ICollection<Permission> permissions = employeeService.GetByIdIncludePermission(id).Permissions;
-            ViewBag.IzinTalepSayisi = permissions.Count;
+            int permissionCount = 0;
+            foreach (Permission item in permissions)
+            {
+                if (item.ReplyState == HRMVCProjectEntities.Concrete.Enums.ReplyState.Beklemede)
+                {
+                    permissionCount++;
+                }
+            }
+            ViewBag.IzinTalepSayisi = permissionCount;
             ViewBag.AvansMiktari = (employee.Wage*0.3) - advancePaymentService.TotalAdvance(id);
             ICollection<AdvancePayment> advancePayments = (ICollection<AdvancePayment>)advancePaymentService.AdvancePaymentList(id);
-            ViewBag.AvansTalepSayisi = advancePayments.Count;
+            int advancePaymentCount = 0;
+            foreach (AdvancePayment item in advancePayments)
+            {
+                if (item.ReplyState == HRMVCProjectEntities.Concrete.Enums.ReplyState.Beklemede)
+                {
+                    advancePaymentCount++;
+                }
+            }
+            ViewBag.AvansTalepSayisi = advancePaymentCount;
+
+            ICollection<Cost> costs = (ICollection<Cost>)employeeService.GetByIdIncludeCosts(id).Costs;
+            int costsCount = 0;
+            foreach (Cost item in costs)
+            {
+                if (item.ReplyState == HRMVCProjectEntities.Concrete.Enums.ReplyState.Beklemede)
+                {
+                    costsCount++;
+                }
+            }
+            ViewBag.HarcamaTalepSayisi = costsCount;
             return View(employee);
         }
 
@@ -104,8 +148,13 @@ namespace HRMVCProjectWebUI.Areas.UserArea.Controllers
                 }
                 
                 employee.PhoneNumber = _employee.PhoneNumber;
-
                 employeeService.Update(employee);
+
+                if (employee.UserPhotoPath != null)
+                {
+                    HttpContext.Session.SetString("picPath", employee.UserPhotoPath);
+                }
+
                 return RedirectToAction(nameof(EmployeeList));
             }
             ModelState.AddModelError("","Güncellenemedi!");
@@ -118,6 +167,59 @@ namespace HRMVCProjectWebUI.Areas.UserArea.Controllers
             HttpContext.Session.Remove("userName");
             HttpContext.Session.Remove("picPath");
             return RedirectToAction("Index", "Home");
+        }
+
+        public IActionResult PasswordChange(int id)
+        {
+            HttpContext.Session.SetInt32("Id", id);
+            PasswordChangeVM passwordChangeVM = new PasswordChangeVM();
+            passwordChangeVM.EmployeeId = id;
+            Employee employee = employeeService.GetById(passwordChangeVM.EmployeeId);           
+            return View(passwordChangeVM);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> PasswordChange(PasswordChangeVM passwordChangeVM,int id)
+        {      
+            if (ModelState.IsValid)
+            {
+                //var user = userManager.GetUserAsync(User);
+                passwordChangeVM.EmployeeId = id;
+                var user = employeeService.GetById(passwordChangeVM.EmployeeId);
+                if (user == null)
+                {
+                    return RedirectToAction("Login","LogIn");
+                }
+
+                // ChangePasswordAsync changes the user password
+                var result =await  userManager.ChangePasswordAsync(user,passwordChangeVM.CurrentPassword, passwordChangeVM.NewPassword);
+
+                
+                if (!result.Succeeded)
+                {
+                    foreach (var error in result.Errors)
+                    {
+                        ModelState.AddModelError(string.Empty, error.Description);
+                    }
+                    return View();
+                }
+                var resultforUpdate = await userManager.UpdateAsync(user);
+                if (resultforUpdate.Succeeded)
+                {
+                    await signInManager.RefreshSignInAsync(user);
+                    return RedirectToAction("EmployeeHome","Employee", new { id = id });
+                }
+                foreach (var item in resultforUpdate.Errors)
+                {
+                    ModelState.AddModelError(string.Empty, item.Description);
+                    return View();
+                }
+                
+            }
+
+            return View();
+
+
         }
 
 

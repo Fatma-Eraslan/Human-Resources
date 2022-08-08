@@ -3,22 +3,23 @@
 
 @{
     ViewData["Title"] = "İzinler";
+    Layout = "_LayoutForEmployee";
 }
-<header class="page-header">
-	<h2>Çalışan İzinleri</h2>
-	<div class="right-wrapper pull-right">
-		<ol class="breadcrumbs">
-			<li>
-				<a href="index.html">
-					<i class="fa fa-home"></i>
-				</a>
-			</li>
-			<li><span>Çalışan</span></li>
-			<li><span>Çalışan İzinleri</span></li>
-		</ol>				
+@*<header class="page-header">
+    <h2>Çalışan İzinleri</h2>
+    <div class="right-wrapper pull-right">
+        <ol class="breadcrumbs">
+            <li>
+                <a href="index.html">
+                    <i class="fa fa-home"></i>
+                </a>
+            </li>
+            <li><span>Çalışan</span></li>
+            <li><span>Çalışan İzinleri</span></li>
+        </ol>
     </div>
-</header>
-<h2>Çalışan İzinleri</h2>
+</header>*@
+@*<h2>Çalışan İzinleri</h2>
 
 <table class="table bold-olsun">
     <thead>
@@ -42,22 +43,23 @@
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.RequestDate)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.StartingDate)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.EndDate)
-            </td>
-            <td>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.RequestDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.StartingDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.EndDate)
+                </td>
+                <td>
                     @{
                         if (item.ReplyState == ReplyState.Onaylandı)
-                        {                                  
-                            <span>&#128994</span>                        
+                        {
+                            <span>&#128994</span>
                         }
                         if (item.ReplyState == ReplyState.OnaylanMAdı)
                         {
@@ -69,14 +71,86 @@
                         }
                     }
                 </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.AdressToGo)
-            </td>
-        </tr>
-}
+                <td>
+                    @Html.DisplayFor(modelItem => item.AdressToGo)
+                </td>
+            </tr>
+        }
     </tbody>
 </table>
+*@
+@*@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+    }
+*@
+    <!-- start: page -->
+    <section class="panel bold-olsun">
+        <header class="panel-heading">
+            <div class="panel-actions">
+                <a href="#" class="fa fa-caret-down"></a>
+            </div>
 
-@section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
-}
+            <h2 class="panel-title">İzin Listesi </h2>
+        </header>
+        <div class="panel-body">
+            <table class="table table-bordered table-striped mb-none" id="datatable-default">
+                <thead>
+                    <tr>
+                        <th>Talep Tarihi</th>
+                        <th>Başlangıç Tarihi</th>
+                        <th>Bitiş Tarihi</th>
+                        <th>İzin Türü</th>
+                        <th>Onay Durumu</th>
+                        <th>Cevap Tarihi</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                {
+                    <tr class="gradeA">
+                        <td>@Html.DisplayFor(modelItem => item.RequestDate)</td>
+                        <td>@Html.DisplayFor(modelItem => item.StartingDate)</td>
+                        <td>@Html.DisplayFor(modelItem => item.EndDate)</td>
+                        <td>@Html.DisplayFor(modelItem => item.PermissionType.PermissionName)</td>
+                        @*  <td>@Html.DisplayFor(modelItem => item.ReplyDate)</td>      *@
+                        <td>
+                            @{
+                                if (item.ReplyState == ReplyState.Onaylandı)
+                                {
+                                    <span>&#128994</span>
+                                }
+                                if (item.ReplyState == ReplyState.OnaylanMAdı)
+                                {
+                                    <span>&#128308;</span>
+                                }
+                                if (item.ReplyState == ReplyState.Beklemede)
+                                {
+                                    <span>&#128993;</span>
+                                }
+                            }
+                        </td>
+                         <td>
+                                @if(item.ReplyState == ReplyState.Onaylandı || item.ReplyState == ReplyState.OnaylanMAdı)
+                                {
+                                    @Html.DisplayFor(modelItem => item.ReplyDate)
+                                }
+                                else
+                                {
+                                    <h5>Cevaplanmadı</h5>
+                                }
+                         </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</section>
+
+<!-- end: page -->
+<div>
+    <p><span>&#128994</span> : İzin talebi onaylandı</p>
+    <p><span>&#128993</span> : İzin talebi beklemede</p>
+    <p><span>&#128308</span> : İzin talebi onaylanmadı</p>
+</div>

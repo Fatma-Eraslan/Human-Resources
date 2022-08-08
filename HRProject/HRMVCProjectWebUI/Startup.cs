@@ -32,9 +32,10 @@ namespace HRMVCProjectWebUI
         public IConfiguration Configuration { get; }
 
         // This method gets called by the runtime. Use this method to add services to the container.
+
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddControllersWithViews().AddFluentValidation
+            services.AddControllersWithViews().AddRazorRuntimeCompilation().AddFluentValidation
                 (a => a.RegisterValidatorsFromAssemblyContaining<Startup>());//validation için *(validationlar bi yerde tutulmalý ve bunu sisteme bildirmeliyiz diye )
             services.AddRazorPages();
                         
@@ -53,6 +54,10 @@ namespace HRMVCProjectWebUI
             //    options.ExpireTimeSpan = TimeSpan.FromMinutes(10);
             //    options.AccessDeniedPath = "/Error/Index";
             //});
+            //services.AddScoped<IUserManager, UserManager>();
+            //services.AddScoped<IRoleManager, RoleManager>();
+            //services.AddScoped<ISignInManager, SignInManager>();
+            //services.AddScoped<IUserStore, UserStore>();
 
             services.AddScoped(typeof(IRepository<>), typeof(GenericRepository<>));
             services.AddScoped(typeof(IGenericService<>), typeof(GenericService<>));
@@ -83,6 +88,15 @@ namespace HRMVCProjectWebUI
 
             services.AddScoped<ICompanyRepository, CompanyRepository>();
             services.AddScoped<ICompanyService, CompanyService>();
+
+            services.AddScoped<IWalletRepository, WalletRepository>();
+            services.AddScoped<IWalletService, WalletService>();
+            
+            services.AddScoped<IPackageRepository, PackageRepository>();
+            services.AddScoped<IPackageService, PackageService>();
+
+            services.AddScoped<ICreditCardRepository, CreditCardRepository>();
+            services.AddScoped<ICreditCardService, CreditCardService>();
 
             services.AddMvc()
             .AddSessionStateTempDataProvider();
